@@ -4,7 +4,7 @@ import math
 d = open('input.csv').read().splitlines()
 slopes = [(1, 1), (3, 1), (5, 1), (7, 1), (1, 2)]
 
-def check(data: list, slope: tuple) -> int:
+def check(data, slope):
     isTree = 0
     slopex, slopey = (0, 0)
     while slopey < len(data):
@@ -14,7 +14,7 @@ def check(data: list, slope: tuple) -> int:
         slopey += slope[1]
     return isTree
 
-def checktwo(data: list, slopes: tuple) -> int:
+def checktwo(data, slopes):
     return math.prod(check(data, slope) for slope in slopes)
 
 
