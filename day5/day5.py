@@ -12,7 +12,7 @@ with open('input.csv')as f:
 
 def check(data: list):
 
-
+    idlist = []
     highest_id = 0
 
     for ticket in data:
@@ -46,11 +46,13 @@ def check(data: list):
                 final_col_num = bot_col_range
         y = round(final_row_num, 0)
         x = round(final_col_num, 0)
-        print(y,x)
         seatid = y * 8 + x
         if seatid > highest_id:
             highest_id = seatid
+        final = "Row: " + str(y) + " column: " + str(x) + " id: " + str(seatid)
+        idlist.append(final)
+    return idlist
 
-    print(highest_id)
-
-check(merged)
+list = check(merged)
+list.sort()
+print(list)
